@@ -1,0 +1,12 @@
+{
+  "name": "lp-instituto-libelula",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Landing page do Instituto Libélula",
+  "scripts": {
+    "optimize": "node scripts/optimize-assets.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
+  }
+}

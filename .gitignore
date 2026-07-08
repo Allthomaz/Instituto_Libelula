@@ -1,0 +1,13 @@
+# deps
+node_modules/
+
+# arquivos originais pesados (mantemos no repo só os WebP otimizados? decidir: manter ambos)
+# descomente se quiser ignorar os PNG/JPG brutos após gerar WebP:
+# assets/images/hero/foto-02.png
+# assets/images/vivencia/*.jpg
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
