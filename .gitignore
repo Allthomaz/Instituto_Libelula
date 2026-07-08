@@ -11,3 +11,6 @@ node_modules/
 Thumbs.db
 *.swp
 .vscode/
+
+# artefatos de teste do Playwright MCP
+.playwright-mcp/
