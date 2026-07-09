@@ -1,6 +1,9 @@
 (() => {
   'use strict';
 
+  // Sinaliza JS ativo (progressive enhancement: sem JS, .reveal permanece visível)
+  document.documentElement.classList.add('js');
+
   // 1. Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
@@ -34,17 +37,6 @@
       d.addEventListener('toggle', () => {
         if (d.open) items.forEach((o) => { if (o !== d) o.open = false; });
       });
-    });
-  });
-
-  // 4. Smooth-scroll para âncoras (fallback além do scroll-behavior)
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener('click', (ev) => {
-      const id = a.getAttribute('href');
-      if (id.length > 1) {
-        const target = document.querySelector(id);
-        if (target) { ev.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-      }
     });
   });
 })();

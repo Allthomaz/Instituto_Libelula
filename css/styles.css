@@ -31,6 +31,12 @@
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; padding: 8px; }
 .nav-toggle span { width: 24px; height: 2px; background: var(--fg); }
 
+/* Nav mobile (painel aberto pelo toggle; `hidden` por padrão via atributo) */
+.nav-mobile { padding: 0.5rem 1.25rem 1.5rem; background: #0d2f1ee6; border-bottom: 1px solid var(--border); }
+.nav-mobile__link { display: block; padding: 0.75rem 0; color: var(--fg-soft); font-size: 1.05rem; border-bottom: 1px solid var(--border); }
+.nav-mobile__link:last-child { border-bottom: 0; }
+.nav-mobile__link:hover { color: var(--accent); }
+
 /* Hero */
 .hero {
   position: relative; min-height: 100svh; display: flex; align-items: center;
@@ -93,14 +99,14 @@
 .hero__content > *:nth-child(3) { animation-delay: 0.55s; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Reveal on scroll (controlado por .is-visible adicionado via IntersectionObserver) */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
+/* Reveal on scroll — gated em .js (progressive enhancement: sem JS, conteúdo fica visível) */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* reduced motion: desliga stagger, reveal e libélula */
 @media (prefers-reduced-motion: reduce) {
   .hero__content > * { opacity: 1; animation: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .libelula { display: none; }
 }
 
