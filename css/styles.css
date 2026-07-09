@@ -50,13 +50,13 @@
   position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(100deg, rgba(13,47,30,.82) 0%, rgba(13,47,30,.55) 55%, rgba(13,47,30,.35) 100%);
 }
-.hero__content { max-width: 640px; }
-.hero__title { font-size: var(--fs-h1); font-weight: 700; letter-spacing: -0.01em; text-align: left; }
+.hero__content { max-width: 1100px; margin-inline: auto; text-align: center; }
+.hero__title { font-size: clamp(3rem, 16vw, 16rem); font-weight: 700; letter-spacing: -0.02em; text-align: center; line-height: 0.9; filter: drop-shadow(0 8px 44px rgba(255,165,0,.16)); }
 .hero__title-line { display: block; }
 .hero__title-line--top { font-size: 0.8em; font-weight: 600; }
-.hero__title-line--bottom { font-size: 1em; line-height: 0.9; }
-.hero__subtitle { font-size: var(--fs-lead); color: var(--fg-soft); margin-top: 1rem; max-width: 30ch; }
-.hero__ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.hero__title-line--bottom { font-size: 1em; }
+.hero__subtitle { font-size: var(--fs-lead); color: var(--fg-soft); margin-top: 1.5rem; max-width: 36ch; margin-inline: auto; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; justify-content: center; }
 
 /* Strip dos pilares */
 .pillars-strip {

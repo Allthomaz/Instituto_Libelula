@@ -20,3 +20,6 @@ screenshots/
 
 # screenshots de revisao (variantes)
 .screenshots/
+
+# screenshots de revisao salvos na raiz por engano
+/*.png
