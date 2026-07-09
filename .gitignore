@@ -17,3 +17,6 @@ Thumbs.db
 
 # screenshots de revisao (artefatos de teste)
 screenshots/
+
+# screenshots de revisao (variantes)
+.screenshots/
