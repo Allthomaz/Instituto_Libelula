@@ -2,6 +2,8 @@
 
 Landing page do Instituto Libélula (espaço de rituais com Ayahuasca, Piedade/SP).
 
+> 🟢 **MVP implementado** — 8 seções, vanilla HTML/CSS/JS, assets WebP, a11y WCAG AA. Código em `main`. Deploy Vercel pendente (importar o repo em vercel.com/new).
+
 ## Stack
 Vanilla HTML/CSS/JS (sem build). Deploy: Vercel.
 
