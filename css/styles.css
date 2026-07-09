@@ -103,3 +103,19 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .libelula { display: none; }
 }
+
+/* Seções e Pilares */
+.section { padding: var(--space-section) 0; }
+.section--alt { background: var(--bg-section); }
+.section__title { font-size: var(--fs-h2); margin-bottom: 1.5rem; }
+.lead { font-size: var(--fs-lead); color: var(--fg-soft); max-width: 65ch; }
+
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.pillar {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 2rem; transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+.pillar:hover { transform: translateY(-4px); box-shadow: 0 16px 40px #00000040; }
+.pillar__icon { font-size: 2rem; }
+.pillar__title { font-size: var(--fs-h3); margin: 0.75rem 0 0.5rem; }
+.pillar__text { color: var(--fg-soft); }
