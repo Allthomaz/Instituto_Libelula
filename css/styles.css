@@ -51,7 +51,10 @@
   background: linear-gradient(100deg, rgba(13,47,30,.82) 0%, rgba(13,47,30,.55) 55%, rgba(13,47,30,.35) 100%);
 }
 .hero__content { max-width: 640px; }
-.hero__title { font-size: var(--fs-h1); font-weight: 700; letter-spacing: -0.01em; }
+.hero__title { font-size: var(--fs-h1); font-weight: 700; letter-spacing: -0.01em; text-align: left; }
+.hero__title-line { display: block; }
+.hero__title-line--top { font-size: 0.8em; font-weight: 600; }
+.hero__title-line--bottom { font-size: 1em; line-height: 0.9; }
 .hero__subtitle { font-size: var(--fs-lead); color: var(--fg-soft); margin-top: 1rem; max-width: 30ch; }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
 
