@@ -85,3 +85,21 @@
   .contact-card { position: static; margin: 2rem 1.25rem 0; max-width: none; }
   .hero { padding-top: 6rem; }
 }
+
+/* Stagger de load da hero */
+.hero__content > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+.hero__content > *:nth-child(1) { animation-delay: 0.15s; }
+.hero__content > *:nth-child(2) { animation-delay: 0.35s; }
+.hero__content > *:nth-child(3) { animation-delay: 0.55s; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Reveal on scroll (controlado por .is-visible adicionado via IntersectionObserver) */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* reduced motion: desliga stagger, reveal e libélula */
+@media (prefers-reduced-motion: reduce) {
+  .hero__content > * { opacity: 1; animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .libelula { display: none; }
+}
