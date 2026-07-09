@@ -51,7 +51,7 @@
   background: linear-gradient(100deg, rgba(13,47,30,.82) 0%, rgba(13,47,30,.55) 55%, rgba(13,47,30,.35) 100%);
 }
 .hero__content { max-width: 1100px; margin-inline: auto; text-align: center; }
-.hero__title { font-size: clamp(3rem, 16vw, 16rem); font-weight: 700; letter-spacing: -0.02em; text-align: center; line-height: 0.9; filter: drop-shadow(0 8px 44px rgba(255,165,0,.16)); }
+.hero__title { font-size: clamp(3rem, 16vw, 16rem); font-weight: 700; letter-spacing: -0.02em; text-align: center; line-height: 0.9; color: var(--gold); filter: drop-shadow(0 8px 44px rgba(255,165,0,.16)); }
 .hero__title-line { display: block; }
 .hero__title-line--top { font-size: 0.8em; font-weight: 600; }
 .hero__title-line--bottom { font-size: 1em; }
