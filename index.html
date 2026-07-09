@@ -13,7 +13,7 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="640">
   <meta property="og:image:height" content="640">
-  <meta property="og:image:alt" content="Libélula dourada sobre verde-floresta — Instituto Libélula">
+  <meta property="og:image:alt" content="Libélula dourada sobre verde-floresta - Instituto Libélula">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="assets/images/brand/share-ref.jpg">
 
@@ -30,6 +30,13 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- Sprite de ícones (line-art dourado) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2c1 2 1.8 4.18 1.8 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></symbol>
+    <symbol id="icon-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-1 5-1 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-1 5-1 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-1 5-1 1.3 0 1.9.5 2.5 1"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  </svg>
 
   <header class="site-header" id="topo">
     <div class="container site-header__inner">
@@ -94,15 +101,15 @@
 
       <ul class="pillars-strip" aria-label="Nossos três pilares">
         <li class="pillars-strip__item">
-          <span class="pillars-strip__icon" aria-hidden="true">🌿</span>
+          <span class="pillars-strip__icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-leaf"/></svg></span>
           <span class="pillars-strip__label">Medicinas da Floresta</span>
         </li>
         <li class="pillars-strip__item">
-          <span class="pillars-strip__icon" aria-hidden="true">🎵</span>
+          <span class="pillars-strip__icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-waves"/></svg></span>
           <span class="pillars-strip__label">Terapias Integrativas</span>
         </li>
         <li class="pillars-strip__item">
-          <span class="pillars-strip__icon" aria-hidden="true">🌙</span>
+          <span class="pillars-strip__icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-moon"/></svg></span>
           <span class="pillars-strip__label">Caminho de Acompanhamento</span>
         </li>
       </ul>
@@ -115,10 +122,17 @@
           <a href="https://wa.me/5511933977438" target="_blank" rel="noopener noreferrer">Conversar no WhatsApp</a>
         </p>
       </aside>
+
+      <a href="#sobre" class="scroll-cue" aria-label="Rolar para conhecer o instituto">
+        <span class="scroll-cue__track" aria-hidden="true"></span>
+      </a>
     </section>
+
+    <div class="divider" aria-hidden="true"><span class="divider__mark"></span></div>
 
     <section id="sobre" class="section section--alt" aria-labelledby="sobre-title">
       <div class="container">
+        <p class="eyebrow reveal">O Instituto</p>
         <h2 id="sobre-title" class="section__title reveal">Sobre o Instituto Libélula</h2>
         <p class="lead reveal">
           O Instituto Libélula é um espaço de cura, autoconhecimento e reconexão. Nossa proposta é
@@ -130,22 +144,25 @@
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"><span class="divider__mark"></span></div>
+
     <section id="pilares" class="section" aria-labelledby="pilares-title">
       <div class="container">
+        <p class="eyebrow reveal">Três caminhos</p>
         <h2 id="pilares-title" class="section__title reveal">Os três pilares</h2>
         <div class="pillars">
           <article class="pillar reveal">
-            <span class="pillar__icon" aria-hidden="true">🌿</span>
+            <span class="pillar__icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-leaf"/></svg></span>
             <h3 class="pillar__title">Medicinas da Floresta</h3>
             <p class="pillar__text">O ritual sagrado, o coração da vivência: Ayahuasca, Rapé e Sananga.</p>
           </article>
           <article class="pillar reveal">
-            <span class="pillar__icon" aria-hidden="true">🎵</span>
+            <span class="pillar__icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-waves"/></svg></span>
             <h3 class="pillar__title">Terapias Integrativas</h3>
             <p class="pillar__text">Ferramentas de acesso que preparam o corpo e o campo: soundhealing e respiração.</p>
           </article>
           <article class="pillar reveal">
-            <span class="pillar__icon" aria-hidden="true">🌙</span>
+            <span class="pillar__icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-moon"/></svg></span>
             <h3 class="pillar__title">Caminho de Acompanhamento</h3>
             <p class="pillar__text">A jornada contínua que não acaba no ritual, começa: integração, astrologia, comunidade.</p>
           </article>
@@ -153,8 +170,11 @@
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"><span class="divider__mark"></span></div>
+
     <section id="medicinas" class="section section--alt" aria-labelledby="medicinas-title">
       <div class="container">
+        <p class="eyebrow reveal">Da floresta</p>
         <h2 id="medicinas-title" class="section__title reveal">Medicinas da Floresta</h2>
         <p class="reveal intro-acc">Toque em cada medicina para conhecer. Cada vivência é única: não dizemos o que você vai sentir.</p>
 
@@ -207,8 +227,11 @@
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"><span class="divider__mark"></span></div>
+
     <section id="terapias" class="section" aria-labelledby="terapias-title">
       <div class="container">
+        <p class="eyebrow reveal">Do som e do corpo</p>
         <h2 id="terapias-title" class="section__title reveal">Terapias Integrativas</h2>
         <div class="accordion reveal">
           <details class="acc">
@@ -230,8 +253,11 @@
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"><span class="divider__mark"></span></div>
+
     <section id="guardioes" class="section section--alt" aria-labelledby="guardioes-title">
       <div class="container">
+        <p class="eyebrow reveal">Quem conduz</p>
         <h2 id="guardioes-title" class="section__title reveal">Guardiões dos Rituais</h2>
         <div class="accordion reveal">
           <details class="acc">
@@ -245,8 +271,11 @@
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"><span class="divider__mark"></span></div>
+
     <section id="rituais" class="section" aria-labelledby="rituais-title">
       <div class="container">
+        <p class="eyebrow reveal">Agenda e valores</p>
         <h2 id="rituais-title" class="section__title reveal">Próximos rituais e valores</h2>
         <div class="info-grid">
           <div class="info-card reveal">
@@ -267,9 +296,12 @@
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"><span class="divider__mark"></span></div>
+
     <section id="contato" class="section section--alt" aria-labelledby="contato-title">
       <div class="container contato">
         <div class="reveal">
+          <p class="eyebrow">Fale conosco</p>
           <h2 id="contato-title" class="section__title">Contato</h2>
           <p class="lead">Fale com Thiago Biral, Txi Ruas, facilitador das vivências.</p>
           <ul class="contato__list">

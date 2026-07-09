@@ -102,7 +102,7 @@
 .hero__content > *:nth-child(3) { animation-delay: 0.55s; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Reveal on scroll — gated em .js (progressive enhancement: sem JS, conteúdo fica visível) */
+/* Reveal on scroll - gated em .js (progressive enhancement: sem JS, conteúdo fica visível) */
 .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
@@ -160,3 +160,41 @@
 .site-footer__inner { display: flex; flex-direction: column; gap: 0.25rem; }
 .site-footer__brand { font-family: var(--font-display); font-size: 1.2rem; }
 .site-footer__copy { color: var(--fg-soft); font-size: 0.9rem; }
+
+/* ==========================================================================
+   Refinos de polimento - frontend-design (ícones, eyebrows, scroll-cue, divisores)
+   ========================================================================== */
+
+/* Ícones SVG (sprite) */
+.icon { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.pillars-strip__icon { color: var(--accent); }
+.pillar__icon { color: var(--accent); }
+
+/* Eyebrow editorial acima dos títulos de seção */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-soft);
+  margin-bottom: 0.75rem;
+}
+.eyebrow::before { content: ''; width: 26px; height: 1.5px; background: var(--accent-soft); }
+
+/* Cue de scroll na hero (linha dourada com gota que cai) */
+.scroll-cue { position: absolute; left: 50%; bottom: 1.75rem; transform: translateX(-50%); z-index: 2; }
+.scroll-cue__track { display: block; width: 1.5px; height: 48px; background: #ffffff22; position: relative; overflow: hidden; border-radius: 2px; }
+.scroll-cue__track::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 18px; background: linear-gradient(var(--accent), transparent); animation: cueDrop 2.4s cubic-bezier(.4,0,.2,1) infinite; }
+@keyframes cueDrop { 0% { transform: translateY(-100%); } 60%,100% { transform: translateY(48px); } }
+
+/* Divisores orgânicos entre seções (losango dourado + linhas que esmaecem) */
+.divider { display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 2.25rem 1.25rem; }
+.divider::before, .divider::after { content: ''; height: 1px; width: min(130px, 22vw); background: linear-gradient(to right, transparent, var(--accent-soft)); }
+.divider::after { background: linear-gradient(to left, transparent, var(--accent-soft)); }
+.divider__mark { width: 7px; height: 7px; background: var(--accent); transform: rotate(45deg); box-shadow: 0 0 12px #ffa50055; }
+
+/* Responsivo + reduced motion */
+@media (max-width: 860px) {
+  .scroll-cue { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue__track::after { animation: none; opacity: .55; }
+}
