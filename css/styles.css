@@ -90,9 +90,13 @@
 @media (max-width: 860px) {
   .nav, .nav__cta { display: none; }
   .nav-toggle { display: flex; margin-left: auto; }
-  .pillars-strip { position: static; padding: 0 1.25rem; margin-top: 2.5rem; }
-  .contact-card { position: static; margin: 2rem 1.25rem 0; max-width: none; }
-  .hero { padding-top: 6rem; }
+  /* hero empilha em coluna: título+botões no topo, pilares em linha e card abaixo */
+  .hero { padding-top: 6rem; flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+  .hero__content { width: 100%; }
+  .pillars-strip { position: static; justify-content: center; flex-wrap: wrap; gap: 1.25rem; margin: 2.5rem 1.25rem 0; }
+  .pillars-strip__item { flex-direction: column; align-items: center; gap: 0.35rem; min-width: 5.5rem; }
+  .pillars-strip__label { font-size: 0.72rem; text-align: center; line-height: 1.2; }
+  .contact-card { position: static; margin: 1.75rem 1.25rem 0; max-width: none; text-align: center; }
 }
 
 /* Stagger de load da hero */
