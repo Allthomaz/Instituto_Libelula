@@ -1,0 +1,87 @@
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0.75rem 1.5rem; border-radius: var(--radius);
+  font-weight: 500; transition: transform var(--t-fast), background var(--t-fast), box-shadow var(--t-fast);
+}
+.btn--primary { background: var(--accent); color: var(--forest-deep); }
+.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px #ffa50033; }
+.btn--ghost { background: transparent; color: var(--fg); border: 1.5px solid var(--accent-soft); }
+.btn--ghost:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+/* Header */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: #0d2f1eb3; backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner { display: flex; align-items: center; gap: 1.5rem; height: 72px; }
+.brand { display: flex; align-items: center; gap: 0.6rem; }
+.brand__logo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.brand__name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; }
+.nav { display: flex; gap: 1.75rem; margin-left: auto; }
+.nav__link { font-size: 0.95rem; color: var(--fg-soft); position: relative; padding: 0.25rem 0; }
+.nav__link::after {
+  content: ''; position: absolute; left: 0; bottom: -2px; height: 1.5px; width: 0;
+  background: var(--accent); transition: width var(--t-fast);
+}
+.nav__link:hover { color: var(--fg); }
+.nav__link:hover::after { width: 100%; }
+.nav__cta { margin-left: 0.5rem; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; padding: 8px; }
+.nav-toggle span { width: 24px; height: 2px; background: var(--fg); }
+
+/* Hero */
+.hero {
+  position: relative; min-height: 100svh; display: flex; align-items: center;
+  padding: 7rem 0 6rem; overflow: hidden;
+}
+.hero__bg {
+  position: absolute; inset: 0; z-index: -2;
+  background: url('../assets/images/hero/foto-02.webp') center/cover no-repeat;
+}
+.hero__overlay {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(100deg, rgba(13,47,30,.82) 0%, rgba(13,47,30,.55) 55%, rgba(13,47,30,.35) 100%);
+}
+.hero__content { max-width: 640px; }
+.hero__title { font-size: var(--fs-h1); font-weight: 700; letter-spacing: -0.01em; }
+.hero__subtitle { font-size: var(--fs-lead); color: var(--fg-soft); margin-top: 1rem; max-width: 30ch; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+/* Strip dos pilares */
+.pillars-strip {
+  position: absolute; left: 1.25rem; bottom: 2rem; z-index: 2;
+  display: flex; flex-wrap: wrap; gap: 2rem; list-style: none;
+}
+.pillars-strip__item { display: flex; align-items: center; gap: 0.5rem; }
+.pillars-strip__icon { font-size: 1.4rem; }
+.pillars-strip__label { font-size: 0.9rem; color: var(--fg-soft); }
+
+/* Caixa de contato */
+.contact-card {
+  position: absolute; right: 1.25rem; bottom: 2rem; z-index: 2;
+  background: #0d2f1ee6; border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem; max-width: 280px;
+}
+.contact-card__name { font-family: var(--font-display); font-size: 1.3rem; }
+.contact-card__role { color: var(--accent-soft); font-size: 0.9rem; margin-top: 0.15rem; }
+.contact-card__links { display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.75rem; font-size: 0.85rem; }
+.contact-card__links a:hover { color: var(--accent); }
+
+/* Libélula */
+.libelula {
+  position: absolute; width: 56px; color: var(--gold); z-index: 1; opacity: 0.85;
+  offset-path: path('M -40 220 C 200 80, 520 320, 760 140 S 1100 260, 1320 120');
+  animation: voar 22s linear infinite;
+}
+@keyframes voar { to { offset-distance: 100%; } }
+
+/* Mobile: header colapsa, hero empilha */
+@media (max-width: 860px) {
+  .nav, .nav__cta { display: none; }
+  .nav-toggle { display: flex; margin-left: auto; }
+  .pillars-strip { position: static; padding: 0 1.25rem; margin-top: 2.5rem; }
+  .contact-card { position: static; margin: 2rem 1.25rem 0; max-width: none; }
+  .hero { padding-top: 6rem; }
+}

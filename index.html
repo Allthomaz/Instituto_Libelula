@@ -28,7 +28,7 @@
   <header class="site-header" id="topo">
     <div class="container site-header__inner">
       <a href="#topo" class="brand" aria-label="Instituto Libélula, início">
-        <img src="assets/images/logo/logo.jpg" alt="" width="44" height="44" class="brand__logo">
+        <img src="assets/images/logo/logo-brand.webp" alt="" width="44" height="44" class="brand__logo">
         <span class="brand__name">Instituto Libélula</span>
       </a>
 
@@ -58,7 +58,55 @@
   </header>
 
   <main id="main">
-    <!-- HERO entra na Task 4 -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <!-- Libélula SVG (momento memorável) -->
+      <svg class="libelula" viewBox="0 0 60 40" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <ellipse cx="30" cy="20" rx="1.6" ry="9"/>
+          <path d="M30 14 C 22 4, 14 6, 16 14 C 14 16, 8 18, 30 16"/>
+          <path d="M30 14 C 38 4, 46 6, 44 14 C 46 16, 52 18, 30 16"/>
+          <path d="M30 24 C 24 32, 18 30, 20 24"/>
+          <path d="M30 24 C 36 32, 42 30, 40 24"/>
+        </g>
+      </svg>
+
+      <div class="container hero__content">
+        <h1 id="hero-title" class="hero__title text-gradient">Instituto Libélula</h1>
+        <p class="hero__subtitle">Medicina do som, da respiração e da floresta a serviço da saúde mental.</p>
+
+        <div class="hero__ctas">
+          <a href="#sobre" class="btn btn--primary">Conheça o Instituto</a>
+          <a href="https://wa.me/5511933977438" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Agendar Conversa</a>
+        </div>
+      </div>
+
+      <ul class="pillars-strip" aria-label="Nossos três pilares">
+        <li class="pillars-strip__item">
+          <span class="pillars-strip__icon" aria-hidden="true">🌿</span>
+          <span class="pillars-strip__label">Medicinas da Floresta</span>
+        </li>
+        <li class="pillars-strip__item">
+          <span class="pillars-strip__icon" aria-hidden="true">🎵</span>
+          <span class="pillars-strip__label">Terapias Integrativas</span>
+        </li>
+        <li class="pillars-strip__item">
+          <span class="pillars-strip__icon" aria-hidden="true">🌙</span>
+          <span class="pillars-strip__label">Caminho de Acompanhamento</span>
+        </li>
+      </ul>
+
+      <aside class="contact-card" aria-label="Contato do facilitador">
+        <p class="contact-card__name">Thiago Biral</p>
+        <p class="contact-card__role">Txi Ruas, Facilitador das Vivências</p>
+        <p class="contact-card__links">
+          <a href="mailto:suportetxibiral@gmail.com">suportetxibiral@gmail.com</a>
+          <a href="https://wa.me/5511933977438" target="_blank" rel="noopener noreferrer">WhatsApp +55 11 93397-7438</a>
+        </p>
+      </aside>
+    </section>
   </main>
 
   <script src="js/ui.js" defer></script>

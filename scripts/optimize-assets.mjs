@@ -3,6 +3,7 @@ import sharp from 'sharp';
 const HERO_IN = 'assets/images/hero/foto-02.png';
 const HERO_OUT = 'assets/images/hero/foto-02.webp';
 const LOGO_IN = 'assets/images/logo/logo.jpg';
+const LOGO_TRANSPARENT = 'assets/images/logo/logo-fundo-transparente.png';
 
 const vivencias = [
   ['assets/images/vivencia/foto-01.jpg', 'assets/images/vivencia/foto-01.webp'],
@@ -23,8 +24,11 @@ for (const [inp, out] of vivencias) {
     .toFile(out);
 }
 
-// 3. Favicons a partir do logo.jpg
+// 3. Favicons a partir do logo.jpg (mantém fundo para compatibilidade)
 await sharp(LOGO_IN).resize(32, 32).png().toFile('assets/favicon/favicon-32.png');
 await sharp(LOGO_IN).resize(180, 180).png().toFile('assets/favicon/apple-touch-180.png');
+
+// 4. Brand logo transparente para header (WebP otimizado)
+await sharp(LOGO_TRANSPARENT).resize(96, 96).webp({ quality: 85 }).toFile('assets/images/logo/logo-brand.webp');
 
 console.log('Otimização concluída.');
