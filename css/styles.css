@@ -591,6 +591,135 @@
   .ritual-care__note { align-items: flex-start; text-align: left; }
 }
 
+/* Guardiões: cards compactos com arte completa revelada sob demanda */
+.guardians { position: relative; }
+.guardians__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(20rem, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: end;
+}
+.guardians__heading .section__title { margin-bottom: 0; }
+.guardians__intro { max-width: 56ch; color: var(--fg-soft); }
+.guardians__role { max-width: 54rem; margin-top: 2rem; }
+.guardians-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  list-style: none;
+  overflow: visible;
+}
+.guardian-card { position: relative; min-width: 0; }
+.guardian-card__trigger {
+  position: relative;
+  min-height: 17rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 75% 20%, #d4a24e1c, transparent 32%),
+    linear-gradient(145deg, #173d28, #0b2819);
+  border: 1px solid #d4a24e4a;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 22px 60px #061a1038;
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.guardian-card__trigger::before {
+  content: '';
+  position: absolute;
+  inset: 0.65rem;
+  z-index: -1;
+  border: 1px solid #ffffff0b;
+  border-radius: calc(var(--radius-lg) - 5px);
+}
+.guardian-card__trigger:hover,
+.guardian-card__trigger:focus-visible {
+  z-index: 4;
+  transform: translateY(-4px);
+  border-color: var(--accent-soft);
+  box-shadow: 0 28px 70px #061a1066;
+}
+.guardian-card__ornament { margin-bottom: auto; color: var(--accent); font-size: 1.25rem; }
+.guardian-card__name { font-family: var(--font-display); font-size: clamp(1.7rem, 1.3rem + 1vw, 2.35rem); line-height: 1.05; }
+.guardian-card__role { margin-top: 0.45rem; color: var(--accent-soft); }
+.guardian-card__hint { margin-top: 1.25rem; color: var(--fg-soft); font-size: 0.76rem; letter-spacing: 0.05em; }
+.guardian-card__preview {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 6;
+  width: min(30rem, calc(100vw - 3rem));
+  max-width: none;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  border: 1px solid var(--accent-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 32px 90px #06150de8;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.94);
+  transform-origin: center;
+  transition: opacity var(--t-med), transform var(--t-med);
+}
+@media (hover: hover) and (pointer: fine) {
+  .guardian-card__trigger:hover .guardian-card__preview,
+  .guardian-card__trigger:focus-visible .guardian-card__preview {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .guardian-card:nth-child(3n + 1) .guardian-card__preview { left: 0; transform: translate(0, -50%) scale(0.94); transform-origin: left center; }
+  .guardian-card:nth-child(3n + 1) .guardian-card__trigger:is(:hover, :focus-visible) .guardian-card__preview { transform: translate(0, -50%) scale(1); }
+  .guardian-card:nth-child(3n) .guardian-card__preview { left: 100%; transform: translate(-100%, -50%) scale(0.94); transform-origin: right center; }
+  .guardian-card:nth-child(3n) .guardian-card__trigger:is(:hover, :focus-visible) .guardian-card__preview { transform: translate(-100%, -50%) scale(1); }
+}
+.guardian-dialog {
+  width: min(94vw, 42rem);
+  max-width: none;
+  max-height: 94vh;
+  padding: 0;
+  overflow: visible;
+  color: var(--fg);
+  background: transparent;
+  border: 0;
+}
+.guardian-dialog::backdrop { background: #06150de6; backdrop-filter: blur(8px); }
+.guardian-dialog__surface { position: relative; display: grid; place-items: center; }
+.guardian-dialog__title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.guardian-dialog__image { width: auto; max-width: 100%; max-height: 90vh; object-fit: contain; border: 1px solid var(--accent-soft); border-radius: var(--radius-lg); }
+.guardian-dialog__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  color: var(--forest-deep);
+  background: var(--cream);
+  border: 0;
+  border-radius: 50%;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .guardians__heading { grid-template-columns: 1fr; gap: 1.25rem; }
+  .guardians-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 639px) {
+  .guardians-grid { grid-template-columns: 1fr; }
+  .guardian-card__trigger { min-height: 13rem; }
+  .guardian-card__hint { font-size: 0.72rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guardian-card__trigger,
+  .guardian-card__preview { transition: none; }
+}
+
 /* Accordion */
 .intro-acc { color: var(--fg-soft); margin-bottom: 1.5rem; max-width: 60ch; }
 .accordion { display: flex; flex-direction: column; gap: 0.75rem; }
