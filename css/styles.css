@@ -626,7 +626,7 @@
   border: 1px solid #d4a24e4a;
   border-radius: var(--radius-lg);
   box-shadow: 0 22px 60px #061a1038;
-  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+  transition: transform var(--t-fast);
 }
 .guardian-card__trigger::before {
   content: '';
@@ -647,6 +647,17 @@
 .guardian-card__name { font-family: var(--font-display); font-size: clamp(1.7rem, 1.3rem + 1vw, 2.35rem); line-height: 1.05; }
 .guardian-card__role { margin-top: 0.45rem; color: var(--accent-soft); }
 .guardian-card__hint { margin-top: 1.25rem; color: var(--fg-soft); font-size: 0.76rem; letter-spacing: 0.05em; }
+.guardian-card__description {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .guardian-card__preview {
   position: absolute;
   left: 50%;
@@ -709,6 +720,28 @@
 @media (max-width: 900px) {
   .guardians__heading { grid-template-columns: 1fr; gap: 1.25rem; }
   .guardians-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guardian-card:nth-child(3n + 1) .guardian-card__preview,
+  .guardian-card:nth-child(3n) .guardian-card__preview {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.94);
+    transform-origin: center;
+  }
+  .guardian-card:nth-child(3n + 1) .guardian-card__trigger:is(:hover, :focus-visible) .guardian-card__preview,
+  .guardian-card:nth-child(3n) .guardian-card__trigger:is(:hover, :focus-visible) .guardian-card__preview {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .guardian-card:nth-child(odd) .guardian-card__preview {
+    left: 0;
+    transform: translate(0, -50%) scale(0.94);
+    transform-origin: left center;
+  }
+  .guardian-card:nth-child(odd) .guardian-card__trigger:is(:hover, :focus-visible) .guardian-card__preview { transform: translate(0, -50%) scale(1); }
+  .guardian-card:nth-child(even) .guardian-card__preview {
+    left: 100%;
+    transform: translate(-100%, -50%) scale(0.94);
+    transform-origin: right center;
+  }
+  .guardian-card:nth-child(even) .guardian-card__trigger:is(:hover, :focus-visible) .guardian-card__preview { transform: translate(-100%, -50%) scale(1); }
 }
 @media (max-width: 639px) {
   .guardians-grid { grid-template-columns: 1fr; }
