@@ -1,6 +1,6 @@
 # Design da seção Guardiões
 
-> Data: 2026-07-13 · Status: proposta para validação · Escopo: design e comportamento, sem implementação
+> Data: 2026-07-13 · Status: aprovado para implementação · Escopo: design e comportamento da primeira versão com seis guardiões
 >
 > Relacionados: `docs/spec.md` · `docs/identidade-visual.md` · `docs/conteudo-guardioes.md`
 
@@ -8,12 +8,11 @@
 
 Transformar a seção atual, que explica apenas a função dos guardiões, em uma apresentação humana da equipe. A seção deve ajudar quem considera participar de uma vivência a reconhecer as pessoas, conhecer suas trajetórias e compreender o papel de cada uma no Instituto.
 
-O componente deve funcionar desde já com placeholders e aceitar as fotografias e histórias reais sem mudança estrutural posterior.
+A primeira versão usa as seis artes autorais recebidas, cada uma com retrato, nome e biografia. Uma sétima pessoa será acrescentada quando sua arte estiver disponível, sem placeholder público nesta entrega.
 
 ## 2. Princípios
 
 - Pessoas reais e histórias reais. Nenhum retrato artificial será usado como substituto.
-- O placeholder indica claramente que a fotografia e a apresentação estão em preparação.
 - A biografia conecta trajetória pessoal, atuação profissional e função no Instituto.
 - Relações pessoais, como namoro ou parentesco, só entram na apresentação pública quando forem relevantes e aprovadas pelas pessoas envolvidas.
 - Formação, tempo de experiência e responsabilidades só são publicados quando confirmados.
@@ -48,44 +47,33 @@ Quando a feature `Sua jornada com o Instituto` for implementada, ela deverá ent
 
 ### Grade de retratos
 
-- Desktop largo: quatro colunas.
+- Desktop largo: três colunas, formando duas linhas equilibradas com as seis artes.
 - Tablet: duas colunas.
-- Mobile: uma coluna ou carrossel visual sem dependência de gesto. A preferência inicial é uma coluna para preservar acessibilidade e leitura.
+- Mobile: uma coluna, sem carrossel ou dependência de gesto.
 - Retratos verticais com proporção `4 / 5`.
-- Nome e função permanecem visíveis na base do card.
+- No estado inicial, cada card mostra nome e função resumida sobre um painel verde-floresta.
 - A grade aceita qualquer quantidade de pessoas sem exigir CSS específico por card.
 
 ### Aparência do card
 
-- Fundo verde profundo e borda dourada discreta.
-- Fotografia ocupa toda a área do retrato.
-- Gradiente inferior preserva a leitura de nome e função.
-- Hover ou foco amplia a fotografia entre 3% e 5% e revela uma síntese de duas ou três linhas.
+- Fundo verde profundo, textura sutil feita em CSS e borda dourada discreta.
+- Hover ou foco revela a arte completa em uma camada ampliada sobre a grade, sem alterar o fluxo do documento.
+- A ampliação se ancora para dentro da viewport conforme a posição do card e recebe `z-index` suficiente para permanecer legível sobre os cards vizinhos.
 - A animação usa apenas `transform` e `opacity` e respeita `prefers-reduced-motion`.
-
-### Placeholder
-
-Enquanto a fotografia não estiver disponível, o card apresenta:
-
-- Fundo com gradiente de floresta.
-- Inicial do primeiro nome ou símbolo linear de libélula.
-- Nome, quando confirmado.
-- Texto `Apresentação em preparação`.
-
-O placeholder terá a mesma dimensão do retrato final para evitar mudança de layout quando a foto for adicionada.
+- O card inteiro comunica a ação `Ver apresentação de [nome]`.
 
 ## 5. Apresentação ampliada
 
 ### Desktop
 
-1. Hover ou foco revela uma síntese no próprio card.
-2. Clique abre uma apresentação ampliada em `dialog` nativo.
-3. O diálogo mostra fotografia maior, nome, papel no Instituto, trajetória e uma frase pessoal opcional.
+1. Hover ou foco revela a arte completa ampliada sobre a grade.
+2. Clique abre a mesma arte em um `dialog` nativo com dimensão adequada à viewport.
+3. Sem JavaScript, o acionador continua sendo um link direto para a imagem publicada.
 
 ### Mobile
 
-1. Toque no card abre a apresentação ampliada.
-2. Não existe conteúdo exclusivo de hover.
+1. Toque no card abre a arte ampliada.
+2. Não existe conteúdo exclusivo de hover; a biografia está contida na própria arte aberta.
 3. O botão de fechar fica visível e o gesto de voltar não é substituído por interação personalizada.
 
 ### Acessibilidade
@@ -95,85 +83,87 @@ O placeholder terá a mesma dimensão do retrato final para evitar mudança de l
 - `dialog` recebe título associado e botão de fechar.
 - `Escape` fecha o diálogo.
 - O foco retorna ao card que abriu a apresentação.
-- A imagem usa texto alternativo objetivo, por exemplo `Retrato de Melanie Torres`.
-- Sem JavaScript, nome, função e descrição curta continuam disponíveis no documento.
+- A imagem usa texto alternativo objetivo, por exemplo `Apresentação de Mel Torres`.
+- Sem JavaScript, nome e função continuam disponíveis no documento e o link abre a arte completa.
 
 ## 6. Modelo de conteúdo por pessoa
 
-Cada guardião terá os seguintes campos:
+Cada guardião terá os seguintes campos na marcação:
 
 | Campo | Obrigatório | Uso |
 |---|---|---|
 | Nome público | Sim | Card e diálogo |
-| Slug | Sim | Nome do arquivo da foto e identificador |
+| Slug | Sim | Nome do arquivo da arte e identificador |
 | Função no Instituto | Sim | Linha abaixo do nome |
-| Trajetória curta | Sim | Prévia do card, até 180 caracteres |
-| História completa | Sim | Apresentação ampliada, entre 60 e 140 palavras |
-| Fotografia vertical | Não no placeholder | Retrato do card |
+| Arte vertical | Sim | Hover, foco, link sem JavaScript e diálogo |
 | Texto alternativo | Sim com fotografia | Acessibilidade |
-| Frase pessoal | Não | Destaque no diálogo |
 | Créditos da fotografia | Quando aplicável | Metadado editorial |
 
 ## 7. Organização dos arquivos
 
-Fotografias originais recebidas:
+Artes originais recebidas:
 
 ```text
 assets/images/guardioes/originais/
-  thiago-biral.jpg
-  melanie-torres.jpg
-  giulia-morabito.jpg
-  caio-oliveira.jpg
+  txi-ruas.png
+  stephane.png
+  caio-rumeya.png
+  mateus-vinicius.png
+  mel-torres.png
+  thomaz-felipe.png
 ```
+
+Mapeamento das fontes: `3.png` → Txi Ruas; `4.png` → Stephane; `5.png` → Caio Rumëya; `6.png` → Mateus Vinicius; `7.png` → Mel Torres; `8.png` → Thomaz Felipe.
 
 Arquivos publicados após otimização:
 
 ```text
 assets/images/guardioes/
-  thiago-biral.webp
-  melanie-torres.webp
-  giulia-morabito.webp
-  caio-oliveira.webp
+  txi-ruas.webp
+  stephane.webp
+  caio-rumeya.webp
+  mateus-vinicius.webp
+  mel-torres.webp
+  thomaz-felipe.webp
 ```
 
-Requisitos recomendados para as fotos:
+Requisitos das artes publicadas:
 
-- Retrato vertical ou imagem que aceite corte vertical.
-- Pelo menos 1200 px no lado maior.
-- Preferência por luz natural e rosto identificável.
-- Evitar texto, molduras ou elementos importantes nas bordas.
-- A foto será convertida para WebP e entregue em tamanho responsivo.
+- Preservar integralmente a composição vertical `1080 × 1350`, sem recorte.
+- Converter para WebP mantendo o texto incorporado legível.
+- Declarar largura, altura e `loading="lazy"` para evitar mudança de layout.
+- O PNG original permanece como fonte editorial; a página carrega o WebP otimizado.
 
 As descrições serão reunidas em `docs/conteudo-guardioes.md`. Na implementação aprovada, a versão pública será inserida semanticamente no `index.html`.
 
-## 8. Conteúdo inicialmente conhecido
+## 8. Conteúdo aprovado para os cards
 
-- Thiago Biral / Txi Ruas: facilitador das vivências; trajetória anterior com cinema, detalhes a confirmar.
-- Melanie Torres: guardiã; veterinária, função específica no ritual a confirmar.
-- Giulia Morabito / Gil: guardiã; trajetória com dublagem, função específica a confirmar.
-- Caio Oliveira: guardião; história e função específica a confirmar.
+- Txi Ruas: `Fundador e facilitador`.
+- Stephane: `Guardiã e fundadora do Sagrado Aroma`.
+- Caio Rumëya: `Guardião e batuqueiro`.
+- Mateus Vinicius: `Guardião`.
+- Mel Torres: `Guardiã`.
+- Thomaz Felipe: `Guardião`.
 
-Não será publicada uma relação pessoal como função profissional. Essa informação pode aparecer na história apenas se houver intenção editorial e consentimento.
+As biografias completas permanecem nas artes recebidas. A LP não reescreve nem amplia essas histórias nesta entrega.
 
-## 9. Estados do componente
+## 9. Estado do componente
 
-- `placeholder`: sem foto ou sem história aprovada.
-- `parcial`: fotografia e síntese disponíveis, história longa pendente.
-- `completo`: fotografia, função, síntese e história aprovadas.
-
-Cards parciais e completos podem coexistir. A ordem não deve comunicar hierarquia sem uma decisão explícita.
+- Os seis cards entram como `completo`, pois possuem nome, função resumida e arte autoral.
+- A sétima pessoa não aparece até que sua arte seja recebida.
+- A ordem segue os arquivos fornecidos: Txi Ruas, Stephane, Caio Rumëya, Mateus Vinicius, Mel Torres e Thomaz Felipe. Ela não comunica hierarquia.
 
 ## 10. Critérios de aceite
 
-- Seção compreensível com todos os cards em placeholder.
-- Substituir um placeholder por foto não altera a estrutura HTML do card.
+- Seção compreensível antes de qualquer interação, com nome e função dos seis guardiões.
 - Hover, foco, clique, toque e teclado oferecem acesso equivalente ao conteúdo.
 - Funciona sem overflow em 375 px, 768 px e 1440 px.
-- Imagens usam lazy loading, dimensões declaradas e WebP responsivo.
+- Imagens usam lazy loading, dimensões declaradas e WebP otimizado.
 - Contraste passa em `pnpm check:contrast` e também é inspecionado sobre fotografia.
 - Movimento reduzido desativa zoom e transições não essenciais.
 - Nenhum conteúdo inventado é apresentado como história real.
 - O diálogo fecha corretamente e devolve o foco ao acionador.
+- Sem JavaScript, cada card abre diretamente sua arte completa.
 
 ## 11. Fora deste incremento
 
