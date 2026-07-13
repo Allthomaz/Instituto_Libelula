@@ -64,6 +64,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 
 /* Container */
 .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 1.25rem; }
+section[id] { scroll-margin-top: 88px; }
 
 /* Título com gradiente dourado -> verde */
 .text-gradient {

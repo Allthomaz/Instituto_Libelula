@@ -66,6 +66,8 @@
 |---------|-----|
 | `assets/images/hero/foto-02.png` | **background da hero** (altar na floresta, fogo + aurora verde, sem pessoas) |
 | `assets/images/logo/logo.jpg` | **logo libélula** (header) |
+| `assets/images/logo/logo-marca-transparente.png` | símbolo oficial extraído em alta resolução, com fundo transparente |
+| `assets/images/logo/logo-marca-transparente.webp` | versão leve do símbolo oficial para uso na página |
 | `assets/images/vivencia/20260620_213548.jpg` | Thiago (Beaventurada) + Naiana (soundhealing) — seção Quem somos (v2) |
 | `assets/images/vivencia/foto-01.jpg` | foto de vivência (v2) |
 | `docs/hero-referencia.png` | **referência estrutural** da hero (não vai pro ar — só guia) |
