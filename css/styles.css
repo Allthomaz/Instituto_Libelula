@@ -612,6 +612,8 @@
   overflow: visible;
 }
 .guardian-card { position: relative; min-width: 0; }
+.guardian-card:hover,
+.guardian-card:focus-within { z-index: 10; }
 .guardian-card__trigger {
   position: relative;
   min-height: 17rem;
@@ -665,6 +667,7 @@
   z-index: 6;
   width: min(30rem, calc(100vw - 3rem));
   max-width: none;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: contain;
   border: 1px solid var(--accent-soft);

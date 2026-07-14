@@ -62,6 +62,8 @@ test('oferece preview responsivo e reduz movimento', async () => {
   assert.match(css, /prefers-reduced-motion: reduce/);
   assert.match(css, /\.guardian-card__trigger\s*\{[^}]*transition:\s*transform var\(--t-fast\);/s);
   assert.match(css, /\.guardian-card__description\s*\{/);
+  assert.match(css, /\.guardian-card:hover,\s*\.guardian-card:focus-within\s*\{[^}]*z-index:\s*10;/s);
+  assert.match(css, /\.guardian-card__preview\s*\{[^}]*height:\s*auto;/s);
 });
 
 test('aprimora os links com diálogo e restaura o foco', async () => {
