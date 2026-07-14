@@ -12,6 +12,7 @@ Thumbs.db
 *.swp
 .vscode/
 .worktrees/
+.superpowers/
 
 # artefatos de teste do Playwright MCP
 .playwright-mcp/

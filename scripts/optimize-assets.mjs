@@ -12,6 +12,15 @@ const vivencias = [
   ['assets/images/vivencia/20260620_213548.jpg', 'assets/images/vivencia/20260620_213548.webp'],
 ];
 
+const guardians = [
+  ['assets/images/guardioes/originais/txi-ruas.png', 'assets/images/guardioes/txi-ruas.webp'],
+  ['assets/images/guardioes/originais/stephane.png', 'assets/images/guardioes/stephane.webp'],
+  ['assets/images/guardioes/originais/caio-rumeya.png', 'assets/images/guardioes/caio-rumeya.webp'],
+  ['assets/images/guardioes/originais/mateus-vinicius.png', 'assets/images/guardioes/mateus-vinicius.webp'],
+  ['assets/images/guardioes/originais/mel-torres.png', 'assets/images/guardioes/mel-torres.webp'],
+  ['assets/images/guardioes/originais/thomaz-felipe.png', 'assets/images/guardioes/thomaz-felipe.webp'],
+];
+
 // 1. Hero: resize 1600w, WebP q72 (alvo < 400 KB, ideal ~250 KB)
 await sharp(HERO_IN)
   .resize({ width: 1600, withoutEnlargement: true })
@@ -26,14 +35,21 @@ for (const [inp, out] of vivencias) {
     .toFile(out);
 }
 
-// 3. Favicons a partir do logo.jpg (mantém fundo para compatibilidade)
+// 3. Guardiões: preservar a composição 4:5 e converter sem redimensionar.
+for (const [inp, out] of guardians) {
+  await sharp(inp)
+    .webp({ quality: 82, smartSubsample: true })
+    .toFile(out);
+}
+
+// 4. Favicons a partir do logo.jpg (mantém fundo para compatibilidade)
 await sharp(LOGO_IN).resize(32, 32).png().toFile('assets/favicon/favicon-32.png');
 await sharp(LOGO_IN).resize(180, 180).png().toFile('assets/favicon/apple-touch-180.png');
 
-// 4. Brand logo transparente para header (WebP otimizado)
+// 5. Brand logo transparente para header (WebP otimizado)
 await sharp(LOGO_TRANSPARENT).resize(96, 96).webp({ quality: 85 }).toFile('assets/images/logo/logo-brand.webp');
 
-// 5. Extrai o xadrez gravado no símbolo oficial e cria versões com alpha.
+// 6. Extrai o xadrez gravado no símbolo oficial e cria versões com alpha.
 // O fundo é composto apenas por cinzas muito claros e neutros; o dourado é preservado pela saturação.
 const { data: logoPixels, info: logoInfo } = await sharp(LOGO_TRANSPARENT)
   .ensureAlpha()

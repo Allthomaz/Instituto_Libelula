@@ -4,6 +4,7 @@
   "private": true,
   "description": "Landing page do Instituto Libélula",
   "scripts": {
+    "test": "node --test",
     "optimize": "node scripts/optimize-assets.mjs",
     "check:contrast": "node scripts/check-contrast.js"
   },
