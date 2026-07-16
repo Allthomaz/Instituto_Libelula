@@ -29,7 +29,7 @@ Landing page **temporária** do Instituto Libélula (espaço de rituais com Ayah
 - `docs/` — spec, identidade visual, planos, referências.
 
 ## Estado
-🟢 **LP implementada e no GitHub** (`main` · repo `Allthomaz/Instituto_Libelula`). 8 seções vanilla HTML/CSS/JS, assets WebP otimizados (hero 4.4MB→116KB), a11y WCAG AA, sem build. **Deploy Vercel pendente** (importar o repo em vercel.com/new). Spec: `docs/superpowers/specs/` · Plano: `docs/superpowers/plans/`.
+🟢 **LP publicada na Vercel** (`main` · repo `Allthomaz/Instituto_Libelula`). 8 seções vanilla HTML/CSS/JS, assets WebP otimizados (hero 4.4MB→116KB), a11y WCAG AA, sem build. A publicação foi confirmada em 13/07/2026; domínio próprio continua pendente. Spec: `docs/superpowers/specs/` · Plano: `docs/superpowers/plans/`.
 
 ## Contato do Thiago (caixa da hero + seção Contato)
 `suportetxibiral@gmail.com` · WhatsApp **+55 11 93397-7438** · *"Thiago Biral / Txi Ruas — Facilitador das Vivências"*.

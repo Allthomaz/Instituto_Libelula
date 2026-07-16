@@ -1,6 +1,6 @@
 # Design — LP Instituto Libélula (MVP)
 
-> **Data:** 2026-07-08 · **Status:** aprovado em brainstorming, aguardando criação do repo · **Skill de implementação:** `frontend-design` (com as referências deste projeto).
+> **Data:** 2026-07-08 · **Status:** implementado e publicado na Vercel em 13/07/2026 (confirmação humana) · **Skill de implementação:** `frontend-design` (com as referências deste projeto).
 >
 > **Relacionados:** `docs/spec.md` · `docs/identidade-visual.md` · `docs/hero-referencia.png` · briefing em `~/TM-System/Meu-Saber/Instituto-Libelula/output/landing-page-instituto.md`
 
@@ -193,7 +193,7 @@ Smooth-scroll para âncoras da nav; IntersectionObserver para `.reveal`; toggle 
 - [ ] Hero WebP ~250 KB com `preload`; LCP < 2.5s.
 - [ ] **Zero travessões** em toda a copy; **Zero Condicionamento** preservado.
 - [ ] Accordeons clicáveis expandem o descritivo de Ayahuasca, Rapé, Sananga, Soundhealing e Função dos Guardiões.
-- [ ] Deploy na Vercel.
+- [x] Deploy na Vercel (publicação confirmada em 13/07/2026).
 
 ---
 

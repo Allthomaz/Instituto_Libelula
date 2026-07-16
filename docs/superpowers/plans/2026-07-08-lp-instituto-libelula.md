@@ -1049,7 +1049,7 @@ git commit -m "polish: ajustes de a11y, responsividade e performance"
 
 ## Task 11: Deploy na Vercel + push final
 
-- [ ] **Step 11.1: Criar `vercel.json`**
+- [x] **Step 11.1: Criar `vercel.json`**
 
 ```json
 {
@@ -1062,7 +1062,7 @@ git commit -m "polish: ajustes de a11y, responsividade e performance"
 }
 ```
 
-- [ ] **Step 11.2: Push para o repo (mesclando o README placeholder)**
+- [x] **Step 11.2: Push para o repo (mesclando o README placeholder)**
 
 ```bash
 git add vercel.json
@@ -1073,14 +1073,14 @@ git push -u origin main
 
 O `-X ours` mantém nosso README quando houver conflito com o placeholder do repo. Verificar: `git log --oneline -5` e o repo no GitHub mostra os arquivos.
 
-- [ ] **Step 11.3: Deploy Vercel**
+- [x] **Step 11.3: Deploy Vercel**
 
 Opção A (CLI): `npx vercel` na raiz, seguir o fluxo (linkar/importar projeto, output dir = `.`, build command vazio).
 Opção B (dashboard): em https://vercel.com/new, importar o repo `Allthomaz/Instituto_Libelula`, framework "Other", deploy.
 
 Verificar: URL `*.vercel.app` abre a LP. Hero carrega rápido (LCP), libélula voa, accordeons funcionam, responsivo.
 
-- [ ] **Step 11.4: Atualizar status no README/CLAUDE.md**
+- [x] **Step 11.4: Atualizar status no README/CLAUDE.md**
 
 Marcar o MVP como publicado (atualizar a seção Status do `README.md` e do `CLAUDE.md` do projeto).
 
