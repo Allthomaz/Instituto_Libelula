@@ -7,7 +7,7 @@
   <meta name="description" content="Instituto Libélula: espaço de cura, autoconhecimento e reconexão em Piedade/SP. Medicinas da floresta, soundhealing e respiração em rituais laicos e universalistas.">
   <meta name="theme-color" content="#0D2F1E">
   <meta property="og:title" content="Instituto Libélula">
-  <meta property="og:description" content="Medicina do som, da respiração e da floresta a serviço da saúde mental.">
+  <meta property="og:description" content="Medicina do autoconhecimento, do som, da respiração e da floresta a serviço da saúde mental.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/brand/share-ref.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -30,6 +30,35 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <dialog class="audio-gate" id="audio-gate" aria-labelledby="audio-gate-title">
+    <div class="audio-gate__surface">
+      <p class="audio-gate__eyebrow">Instituto Libélula</p>
+      <h2 class="audio-gate__title" id="audio-gate-title">Para uma experiência completa, ative o som.</h2>
+      <div class="audio-gate__actions">
+        <button class="btn btn--primary" id="audio-gate-enable" type="button">Ativar som e entrar</button>
+        <button class="audio-gate__skip" id="audio-gate-skip" type="button">Entrar sem som</button>
+      </div>
+    </div>
+  </dialog>
+
+  <audio id="background-audio" preload="none">
+    <source src="assets/audio/instituto-libelula.mp3" type="audio/mpeg">
+  </audio>
+  <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Pausar som" aria-pressed="false" title="Pausar som" hidden>
+    <span class="audio-toggle__stone" aria-hidden="true">
+      <svg class="audio-toggle__icon" viewBox="0 0 24 24" focusable="false">
+        <g class="audio-toggle__sound-icon">
+          <path class="audio-toggle__speaker-body" d="M4 10v4h4l5 4V6l-5 4H4Z"/>
+          <path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/>
+        </g>
+        <g class="audio-toggle__pause-icon">
+          <path d="M9 8v8M15 8v8"/>
+        </g>
+      </svg>
+    </span>
+  </button>
+  <p class="visually-hidden" id="audio-status" aria-live="polite"></p>
 
   <!-- Sprite de ícones (line-art dourado) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -58,7 +87,7 @@
         <a href="#sobre" class="nav__link">Sobre</a>
         <a href="#jornada" class="nav__link">Sua jornada</a>
         <a href="#medicinas" class="nav__link">Medicinas</a>
-        <a href="#rituais" class="nav__link">Rituais</a>
+        <a href="#primeira-vez" class="nav__link">Rituais</a>
         <a href="#contato" class="nav__link">Contato</a>
       </nav>
 
@@ -75,7 +104,7 @@
       <a href="#sobre" class="nav-mobile__link">Sobre</a>
       <a href="#jornada" class="nav-mobile__link">Sua jornada</a>
       <a href="#medicinas" class="nav-mobile__link">Medicinas</a>
-      <a href="#rituais" class="nav-mobile__link">Rituais</a>
+      <a href="#primeira-vez" class="nav-mobile__link">Rituais</a>
       <a href="#contato" class="nav-mobile__link">Contato</a>
     </nav>
   </header>
@@ -101,7 +130,7 @@
           <span class="hero__title-line hero__title-line--top">Instituto</span>
           <span class="hero__title-line hero__title-line--bottom">Libélula</span>
         </h1>
-        <p class="hero__subtitle">Medicina do som, da respiração e da floresta a serviço da saúde mental.</p>
+        <p class="hero__subtitle">Medicina do autoconhecimento, do som, da respiração e da floresta a serviço da saúde mental.</p>
 
         <div class="hero__ctas">
           <a href="#sobre" class="btn btn--primary">Conheça o Instituto</a>
@@ -175,7 +204,7 @@
           <article class="pillar reveal">
             <span class="pillar__icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-moon"/></svg></span>
             <h3 class="pillar__title">Caminho de Acompanhamento</h3>
-            <p class="pillar__text">A jornada contínua que não acaba no ritual, começa: integração, astrologia, comunidade.</p>
+            <p class="pillar__text">A jornada contínua que não acaba no ritual, começa: integração, astrologia, psicologia e comunidade terapêutica.</p>
           </article>
         </div>
       </div>
@@ -201,7 +230,7 @@
             </div>
             <div class="journey-step__content">
               <h3 class="journey-step__title">Conversa inicial</h3>
-              <p>Você chama no WhatsApp, tira suas dúvidas e recebe as primeiras informações sobre a vivência.</p>
+              <p>Você chama no WhatsApp, tira suas dúvidas e recebe as primeiras informações sobre a sua jornada.</p>
             </div>
           </li>
           <li class="journey-step reveal">
@@ -211,17 +240,17 @@
             </div>
             <div class="journey-step__content">
               <h3 class="journey-step__title">Anamnese e orientações</h3>
-              <p>O Instituto conhece seu histórico e compartilha as orientações individuais necessárias.</p>
+              <p>O Instituto conhece seu histórico de saúde e o seu contexto de vida.</p>
             </div>
           </li>
           <li class="journey-step reveal">
             <div class="journey-step__marker" aria-hidden="true">
               <span class="journey-step__number">03</span>
-              <svg class="icon"><use href="#icon-confirmacao"/></svg>
+              <svg class="icon"><use href="#icon-orientacao"/></svg>
             </div>
             <div class="journey-step__content">
-              <h3 class="journey-step__title">Confirmação</h3>
-              <p>Disponibilidade, valor e pagamento por Pix são confirmados depois da conversa e da anamnese.</p>
+              <h3 class="journey-step__title">Protocolo personalizado</h3>
+              <p>A partir da anamnese, o Instituto desenha a sua vivência: as medicinas e terapias que fazem sentido para você, na sequência e no ritmo do seu momento.</p>
             </div>
           </li>
           <li class="journey-step reveal">
@@ -230,8 +259,8 @@
               <svg class="icon"><use href="#icon-preparacao"/></svg>
             </div>
             <div class="journey-step__content">
-              <h3 class="journey-step__title">Preparação</h3>
-              <p>Você recebe o preceito, o horário, a localização e as informações práticas para o encontro.</p>
+              <h3 class="journey-step__title">Início da jornada</h3>
+              <p>Com o protocolo definido, sua jornada avança para um acompanhamento multidisciplinar e técnicas práticas para você se desenvolver e alcançar seus objetivos.</p>
             </div>
           </li>
         </ol>
@@ -259,6 +288,9 @@
              class="first-time__link reveal" target="_blank" rel="noopener noreferrer">
             Conversar antes de participar <span aria-hidden="true">→</span>
           </a>
+          <p class="first-time__more reveal">
+            <a href="#rituais" class="btn btn--ghost">Saber mais sobre o próximo ritual</a>
+          </p>
         </div>
 
         <aside class="first-time__commitments reveal" aria-labelledby="compromissos-title">
@@ -611,15 +643,15 @@
         <div class="info-grid">
           <div class="info-card reveal">
             <h3 class="info-card__title">Quando</h3>
-            <p>25 de julho (dia fora do tempo). Depois, todo primeiro sábado do mês.</p>
+            <p>Rituais a cada equinócio e solstício, a cada 3 meses.</p>
           </div>
           <div class="info-card reveal">
             <h3 class="info-card__title">Valores</h3>
-            <p>R$ 150 antecipado · R$ 220 depois. 30 vagas. Pagamento por Pix.</p>
+            <p>R$ 210 antecipado · R$ 250 no dia. 30 vagas. Pagamento em até 3x no crédito ou com 10% de desconto no Pix.</p>
           </div>
           <div class="info-card reveal">
             <h3 class="info-card__title">Onde</h3>
-            <p>Chácara Aurora Austral, Piedade/SP.</p>
+            <p>Chácara Aurora Austral, Piedade/SP. <a href="https://www.google.com/maps/search/?api=1&amp;query=Ch%C3%A1cara+Aurora+Austral+Piedade+SP" class="info-card__map" target="_blank" rel="noopener noreferrer">Ver no mapa</a></p>
           </div>
         </div>
         <p class="reveal"><a href="https://wa.me/5511933977438?text=Ol%C3%A1%21%20Conheci%20o%20Instituto%20pela%20p%C3%A1gina%20e%20gostaria%20de%20iniciar%20minha%20inscri%C3%A7%C3%A3o%20para%20a%20pr%C3%B3xima%20viv%C3%AAncia."

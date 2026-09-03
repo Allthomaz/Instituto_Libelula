@@ -37,6 +37,90 @@
 .nav-mobile__link:last-child { border-bottom: 0; }
 .nav-mobile__link:hover { color: var(--accent); }
 
+/* Entrada opcional com trilha */
+.audio-gate {
+  width: min(calc(100% - 2.5rem), 42rem);
+  max-width: none;
+  margin: auto;
+  padding: 0;
+  color: var(--fg);
+  background: transparent;
+  border: 0;
+}
+.audio-gate::backdrop { background: #06150de6; backdrop-filter: blur(8px); }
+.audio-gate__surface {
+  padding: clamp(2.5rem, 8vw, 5rem);
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0, #d4a24e2e 0, transparent 52%),
+    var(--forest-deep);
+  border: 1px solid #d4a24e73;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px #00000080;
+}
+.audio-gate__eyebrow { color: var(--accent-soft); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.audio-gate__title { max-width: 18ch; margin: 1rem auto 0; font-size: clamp(2.15rem, 6vw, 4rem); }
+.audio-gate__actions { display: grid; justify-items: center; gap: 1rem; margin-top: 2rem; }
+.audio-gate__skip { min-height: 44px; padding: 0.5rem; color: var(--fg-soft); background: transparent; border: 0; text-decoration: underline; text-underline-offset: 4px; }
+.audio-gate__skip:hover { color: var(--accent); }
+.audio-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 101;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  color: var(--gold-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  isolation: isolate;
+}
+.audio-toggle::before,
+.audio-toggle::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  pointer-events: none;
+  border: 1px solid #d4a24e99;
+  border-radius: 50%;
+  opacity: 0;
+}
+.audio-toggle.is-playing::before { animation: audio-ripple 2.8s ease-out infinite; }
+.audio-toggle.is-playing::after { animation: audio-ripple 2.8s 1.4s ease-out infinite; }
+.audio-toggle__stone {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle at 32% 25%, #327052 0%, #143825 42%, #081d13 100%);
+  border: 1px solid #d4a24e8c;
+  border-radius: 48% 52% 45% 55% / 55% 47% 53% 45%;
+  box-shadow: inset 4px 5px 9px #ffffff12, inset -5px -6px 10px #0000005c, 0 7px 20px #00000059;
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.audio-toggle:hover .audio-toggle__stone { transform: translateY(-1px) scale(1.04); border-color: var(--gold-soft); }
+.audio-toggle.is-playing .audio-toggle__stone { box-shadow: inset 4px 5px 9px #ffffff17, inset -5px -6px 10px #0000005c, 0 0 22px #d4a24e38; }
+.audio-toggle__icon { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+.audio-toggle__speaker-body { fill: currentColor; stroke: none; }
+.audio-toggle__pause-icon { display: none; }
+.audio-toggle.is-playing .audio-toggle__sound-icon { display: none; }
+.audio-toggle.is-playing .audio-toggle__pause-icon { display: block; }
+@keyframes audio-ripple {
+  0% { opacity: 0.62; transform: scale(0.88); }
+  75%, 100% { opacity: 0; transform: scale(2.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audio-toggle.is-playing::before,
+  .audio-toggle.is-playing::after { animation: none; opacity: 0.28; transform: scale(1.22); }
+  .audio-toggle.is-playing::after { display: none; }
+}
+
 /* Hero */
 .hero {
   position: relative; min-height: 100svh; display: flex; align-items: center;
@@ -328,6 +412,7 @@
 }
 .first-time__link:hover,
 .first-time__link:focus-visible { color: var(--accent); border-color: var(--accent); gap: 1rem; }
+.first-time__more { margin-top: 3rem; }
 .first-time__commitments {
   position: relative;
   padding: clamp(2rem, 4vw, 3.25rem);
@@ -777,6 +862,9 @@
 .info-card__title { font-size: var(--fs-h3); margin-bottom: 0.5rem; color: var(--accent-soft); }
 .info-card p + p { margin-top: 0.5rem; }
 .info-card__nota { font-size: 0.85rem; color: var(--fg-soft); }
+.info-card__map { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; transition: color var(--t-fast); }
+.info-card__map:hover,
+.info-card__map:focus-visible { color: var(--accent-soft); }
 
 .contato { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .contato__list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
