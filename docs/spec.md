@@ -29,7 +29,16 @@
 
 **Caixa de contato:** *Thiago Biral / Txi Ruas — Facilitador das Vivências* · `suportetxibiral@gmail.com` · +55 11 93397-7438.
 
-## Roadmap — MVP (temporária, ~7 seções)
+## Estado vigente da agenda e dos valores
+
+- **Cadência:** um ritual em cada mudança de estação, nos equinócios e solstícios.
+- **Valores:** R$210 antecipado / R$250 no dia.
+- **Capacidade:** limite de 20 pessoas por ritual.
+- **Pagamento:** até 3x no crédito ou 10% de desconto no Pix.
+
+## Roadmap histórico — MVP inicial (temporária, ~7 seções)
+
+> A tabela abaixo registra o escopo inicial. Agenda, valores e capacidade foram substituídos pelo estado vigente acima.
 
 | # | Seção | Conteúdo | Fonte (Meu-Saber) |
 |---|-------|----------|-------------------|
@@ -37,8 +46,8 @@
 | 2 | **Sobre** | "Sobre o Instituto Libélula" (universalista) | briefing (matéria-prima Thiago) |
 | 3 | **Os 3 Pilares** | visão (1 linha cada) | síntese (este spec) |
 | 4 | **Medicinas** `<details>` | Ayahuasca, Rapé, Sananga, Soundhealing | briefing (textos Thiago) |
-| 5 | **Próximos rituais** | 25/07 (dia fora do tempo); 1º sábado/mês | `dec-calendario-primeiro-sabado` |
-| 6 | **Valores** | R$180 antecipado / R$210 no dia · 30 vagas · Pix | `dec-valores-e-cobranca` |
+| 5 | **Próximos rituais** | Escopo inicial: 25/07 e 1º sábado/mês; ver estado vigente acima | `dec-calendario-primeiro-sabado` |
+| 6 | **Valores** | Escopo inicial: R$180 antecipado / R$210 no dia · 30 vagas · Pix; ver estado vigente acima | `dec-valores-e-cobranca` |
 | 7 | **Contato** | Thiago (WhatsApp/email) + comunidades WhatsApp + forms | `entity-thiago-biral` + `syn-ecossistema-instituto` |
 
 ## v2 (depois — quando tiver texto/foto)
