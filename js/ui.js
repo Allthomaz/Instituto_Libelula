@@ -108,6 +108,32 @@
   }
 
   // 3. Accordeon: fechar os outros ao abrir um (opcional, UX)
+  const pixCopyButton = document.getElementById('copy-pix-key');
+  const pixCopyStatus = document.getElementById('pix-copy-status');
+  if (pixCopyButton && pixCopyStatus) {
+    pixCopyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(pixCopyButton.dataset.pixKey);
+        pixCopyStatus.textContent = 'Chave Pix copiada. Confira o recebedor no aplicativo do seu banco.';
+      } catch {
+        pixCopyStatus.textContent = 'Não foi possível copiar automaticamente. Selecione a chave Pix acima para copiar.';
+      }
+    });
+  }
+
+  const participateMenu = document.querySelector('.participate-menu');
+  if (participateMenu) {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && participateMenu.open) {
+        participateMenu.open = false;
+        participateMenu.querySelector('summary').focus();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (participateMenu.open && !participateMenu.contains(event.target)) participateMenu.open = false;
+    });
+  }
+
   document.querySelectorAll('.accordion').forEach((group) => {
     const items = group.querySelectorAll('details');
     items.forEach((d) => {
