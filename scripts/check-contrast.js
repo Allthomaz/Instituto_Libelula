@@ -38,6 +38,12 @@ const pairs = [
   { bg: '#102d1d', fg: '#F4EFE6', name: 'card → cream' },
   { bg: '#102d1d', fg: '#D4A24E', name: 'card → gold-soft (accent-soft)' },
   { bg: '#FFA500', fg: '#0D2F1E', name: 'gold → forest-deep (texto do botão primary)' },
+  { bg: '#F4EFE6', fg: '#0D2F1E', name: 'cream → forest-deep (seções editoriais)' },
+  { bg: '#D4A24E', fg: '#0D2F1E', name: 'gold-soft → forest-deep (CTAs participação)' },
+  { bg: '#0D2F1E', fg: '#BAC8BA', name: 'forest-deep → muted (participação)' },
+  { bg: '#113722', fg: '#BAC8BA', name: 'participation panel → muted' },
+  { bg: '#113722', fg: '#D4A24E', name: 'participation panel → gold-soft' },
+  { bg: '#113722', fg: '#F4EFE6', name: 'participation panel → cream' },
 ];
 
 console.log('=== WCAG 2.1 Contrast Ratios ===\n');
@@ -48,6 +54,7 @@ pairs.forEach(pair => {
   const formatted = ratio.toFixed(2);
   const passesNormal = ratio >= 4.5 ? '✓' : '✗';
   const passesLarge = ratio >= 3.0 ? '✓' : '✗';
+  if (ratio < 4.5) process.exitCode = 1;
   console.log(`${pair.name}`);
   console.log(`  Ratio: ${formatted}:1 ${passesNormal} (normal) | ${passesLarge} (large)`);
   console.log('');
